@@ -1,0 +1,32 @@
+namespace: ValanticSprykerTest\Zed\UrlResolverFirstSpiritApi
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: false
+
+suites:
+    Business:
+        path: Business
+        class_name: UrlResolverFirstSpiritApiBusinessTester
+        modules:
+            enabled:
+                - Asserts
+                - \PyzTest\Shared\Testify\Helper\Environment
+                - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
+                      projectNamespaces: ['Pyz']
+                - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
+                - \SprykerTest\Shared\Product\Helper\ProductDataHelper
+                - \SprykerTest\Zed\Category\Helper\CategoryDataHelper
+                - \SprykerTest\Zed\Cms\Helper\CmsPageDataHelper
+                - \SprykerTest\Shared\Url\Helper\UrlDataHelper
+                - \SprykerTest\Shared\Store\Helper\StoreDataHelper
+                - REST
+            config:
+                REST:
+                    depends: PhpBrowser
+                    part: Json

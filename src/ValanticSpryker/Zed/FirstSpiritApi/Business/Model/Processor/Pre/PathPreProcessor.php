@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
+declare(strict_types = 1);
+
+namespace ValanticSpryker\Zed\FirstSpiritApi\Business\Model\Processor\Pre;
+
+use Generated\Shared\Transfer\FirstSpiritApiRequestTransfer;
+use ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig;
+
+/**
+ * @method \ValanticSpryker\Zed\FirstSpiritApi\Communication\FirstSpiritApiCommunicationFactory getFactory()
+ * @method \ValanticSpryker\Zed\FirstSpiritApi\Business\FirstSpiritApiFacadeInterface getFacade()
+ */
+class PathPreProcessor implements PreProcessorInterface
+{
+    /**
+     * @var string
+     */
+    public const SERVER_REQUEST_URI = 'REQUEST_URI';
+
+    /**
+     * Maps the DOCUMENT_URI to the path omitting the base part.
+     *
+     * @param \Generated\Shared\Transfer\FirstSpiritApiRequestTransfer $apiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\FirstSpiritApiRequestTransfer
+     */
+    public function process(FirstSpiritApiRequestTransfer $apiRequestTransfer): FirstSpiritApiRequestTransfer
+    {
+        $path = $apiRequestTransfer->getServerData()[static::SERVER_REQUEST_URI];
+        $queryStringIndex = strpos($path, '?');
+        if ($queryStringIndex) {
+            $path = substr($path, 0, $queryStringIndex);
+        }
+
+        if (strpos($path, FirstSpiritApiConfig::ROUTE_PREFIX_FIRST_SPIRIT_API_REST) === 0) {
+            $path = substr($path, strlen(FirstSpiritApiConfig::ROUTE_PREFIX_FIRST_SPIRIT_API_REST));
+        }
+
+        $apiRequestTransfer->setPath($path);
+
+        return $apiRequestTransfer;
+    }
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
+
+    <transfer name="FirstSpiritApiRequest">
+        <property name="requestUri" type="string"/>
+        <property name="requestType" type="string"/>
+        <property name="formatType" type="string"/>
+        <property name="queryData" type="array" singular="queryData"/>
+        <property name="serverData" type="array" singular="serverData"/>
+        <property name="headerData" type="array" singular="headerData"/>
+        <property name="requestData" type="array" singular="requestData"/>
+        <property name="path" type="string"/>
+        <property name="resource" type="string"/>
+        <property name="resourceAction" type="string"/>
+        <property name="resourceId" type="int"/>
+        <property name="resourceParameters" type="array" singular="resourceParameters"/>
+        <property name="filter" type="FirstSpiritApiFilter"/>
+        <property name="firstSpiritApiData" type="FirstSpiritApiData"/>
+        <property name="queryType" type="string"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiResponse">
+        <property name="type" type="string"/>
+        <property name="code" type="int"/>
+        <property name="message" type="string"/>
+        <property name="stackTrace" type="string"/>
+        <property name="headers" type="array" singular="headers"/>
+        <property name="meta" type="FirstSpiritApiMeta"/>
+        <property name="pagination" type="FirstSpiritApiPagination"/>
+        <property name="data" type="array" singular="data"/>
+        <property name="validationErrors" type="FirstSpiritApiValidationError[]" singular="validationError"/>
+        <property name="options" type="array" singular="options"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiValidationError">
+        <property name="field" type="string"/>
+        <property name="messages" type="array" singular="messages"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiFilter">
+        <property name="fields" type="array" singular="fields"/>
+        <property name="criteriaJson" type="string"/>
+        <property name="offset" type="int"/>
+        <property name="limit" type="int"/>
+        <property name="sort" type="array" singular="sort"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiData">
+        <property name="fields" type="array" singular="fields"/>
+        <property name="data" type="array" singular="data"/>
+        <property name="queryData" type="array" singular="queryData"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiPagination">
+        <property name="page" type="int"/>
+        <property name="pageTotal" type="int"/>
+        <property name="itemsPerPage" type="int"/>
+        <property name="total" type="int"/>
+        <property name="prev" type="string"/>
+        <property name="next" type="string"/>
+        <property name="first" type="string"/>
+        <property name="last" type="string"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiCollection">
+        <property name="data" type="array" singular="data"/>
+        <property name="pagination" type="FirstSpiritApiPagination"/>
+        <property name="options" type="array" singular="options"/>
+        <property name="statusCode" type="int"/>
+        <property name="validationErrors" type="FirstSpiritApiValidationError[]" singular="validationError"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiItem">
+        <property name="id" type="string"/>
+        <property name="data" type="array" singular="data"/>
+        <property name="options" type="array" singular="options"/>
+        <property name="statusCode" type="int"/>
+        <property name="validationErrors" type="FirstSpiritApiValidationError[]" singular="validationError"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiOptions">
+        <property name="options" type="array" singular="options"/>
+    </transfer>
+
+    <transfer name="FirstSpiritApiMeta">
+        <property name="resourceId" type="string"/>
+        <property name="self" type="string"/>
+        <property name="links" type="array" singular="links"/>
+        <property name="data" type="array" singular="data"/>
+    </transfer>
+
+</transfers>
