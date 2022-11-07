@@ -13,4 +13,5 @@ new ProductsFirstSpiritApiResourcePlugin(),
 new LookUpFirstSpiritApiResourcePlugin(),
 new StoreFrontFirstSpiritApiResourcePlugin(),
 ```
-  
+
+FS API Docs: https://docs.e-spirit.com/ecom/fsconnect-com-api/FirstSpirit_Connect_for_Commerce_Bridge_API_EN.html
