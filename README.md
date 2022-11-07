@@ -13,5 +13,6 @@ new ProductsFirstSpiritApiResourcePlugin(),
 new LookUpFirstSpiritApiResourcePlugin(),
 new StoreFrontFirstSpiritApiResourcePlugin(),
 ```
+- add `FirstSpiritApiConstants::PAGING_SIZE` to `Spryker\Client\Catalog\CatalogConfig::PAGINATION_CATALOG_SEARCH_VALID_ITEMS_PER_PAGE`
 
 FS API Docs: https://docs.e-spirit.com/ecom/fsconnect-com-api/FirstSpirit_Connect_for_Commerce_Bridge_API_EN.html
