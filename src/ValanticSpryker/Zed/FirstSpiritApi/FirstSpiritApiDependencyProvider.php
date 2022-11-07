@@ -7,11 +7,6 @@ namespace ValanticSpryker\Zed\FirstSpiritApi;
 use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
-use ValanticSpryker\Zed\CategoryFirstSpiritApi\Communication\Plugin\CategoriesFirstSpiritApiResourcePlugin;
-use ValanticSpryker\Zed\CmsFirstSpiritApi\Communication\Plugin\CmsFirstSpiritApiResourcePlugin;
-use ValanticSpryker\Zed\ProductFirstSpiritApi\Communication\Plugin\ProductsFirstSpiritApiResourcePlugin;
-use ValanticSpryker\Zed\UrlResolverFirstSpiritApi\Communication\Plugin\LookUpFirstSpiritApiResourcePlugin;
-use ValanticSpryker\Zed\UrlResolverFirstSpiritApi\Communication\Plugin\StoreFrontFirstSpiritApiResourcePlugin;
 
 /**
  * @method \ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig getConfig()
@@ -106,15 +101,9 @@ class FirstSpiritApiDependencyProvider extends AbstractBundleDependencyProvider
     /**
      * @return array<\ValanticSpryker\Zed\FirstSpiritApi\Communication\Plugin\FirstSpiritApiResourcePluginInterface>
      */
-    private function getApiResourcePluginCollection(): array
+    protected function getApiResourcePluginCollection(): array
     {
-        return [
-            new CategoriesFirstSpiritApiResourcePlugin(),
-            new CmsFirstSpiritApiResourcePlugin(),
-            new ProductsFirstSpiritApiResourcePlugin(),
-            new LookUpFirstSpiritApiResourcePlugin(),
-            new StoreFrontFirstSpiritApiResourcePlugin(),
-        ];
+        return [];
     }
 
     /**
