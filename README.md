@@ -6,7 +6,7 @@ composer require valantic-spryker/firstspirit-bridge-api
 ```
 
 2. Add configuration to `config_default.php`
-```
+```php
 $firstSpiritSpaHost = 'www.frontend.de';
 $config[FirstSpiritApiConstants::IS_FIRST_SPIRIT_API_DEBUG_ENABLED] = false;
 $config[FirstSpiritApiConstants::PAGING_SIZE] = 10;
@@ -14,7 +14,7 @@ $config[FirstSpiritApiConstants::FIRST_SPIRIT_SPA_URL] = ($backofficePort === 80
 ```
 
 3. Register DispatcherPlugin
-```
+```php
 <?php
 
 namespace Pyz\Zed\EventDispatcher;
@@ -40,7 +40,7 @@ class EventDispatcherDependencyProvider extends SprykerEventDispatcherDependency
 ```
 
 4. Register RouterPlugin
-```
+```php
 <?php
 
 namespace Pyz\Zed\Router;
@@ -66,7 +66,7 @@ class RouterDependencyProvider extends SprykerRouterDependencyProvider
 ```
 
 5. Register FirstSpirit ResourcePlugins:
-```
+```php
 <?php
 
 namespace Pyz\Zed\FirstSpiritApi;
@@ -97,7 +97,7 @@ class FirstSpiritApiDependencyProvider extends ValanticFirstSpiritApiDependencyP
 ```
 
 6. Add FS PagingSize
-```
+```php
 <?php
 
 namespace Pyz\Client\Catalog;
