@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace ValanticSpryker\Client\CategoryStorage\Storage;
+namespace ValanticSpryker\Client\FirstSpiritApi\Storage;
 
 use ArrayObject;
 use Generated\Shared\Transfer\CategoryNodeStoragePaginationTransfer;
@@ -12,18 +12,18 @@ use Spryker\Client\CategoryStorage\Dependency\Service\CategoryStorageToSynchroni
 use Spryker\Client\CategoryStorage\Storage\CategoryNodeStorage as SprykerCategoryNodeStorage;
 use Spryker\Client\Storage\Redis\Service;
 use Spryker\Shared\CategoryStorage\CategoryStorageConstants;
-use ValanticSpryker\Client\CategoryStorage\Dependency\Client\CategoryStorageToStorageInterface;
-use ValanticSpryker\Client\CategoryStorage\Storage\CategoryNodeStorageInterface;
+use ValanticSpryker\Client\FirstSpiritApi\Dependency\Client\CategoryStorageToStorageInterface;
+use ValanticSpryker\Client\FirstSpiritApi\Storage\CategoryNodeStorageInterface;
 
 class CategoryNodeStorage extends SprykerCategoryNodeStorage implements CategoryNodeStorageInterface
 {
     /**
-     * @var \ValanticSpryker\Client\CategoryStorage\Dependency\Client\CategoryStorageToStorageInterface
+     * @var \ValanticSpryker\Client\FirstSpiritApi\Dependency\Client\CategoryStorageToStorageInterface
      */
     protected $storageClient;
 
     /**
-     * @param \ValanticSpryker\Client\CategoryStorage\Dependency\Client\CategoryStorageToStorageInterface $storageClient
+     * @param \ValanticSpryker\Client\FirstSpiritApi\Dependency\Client\CategoryStorageToStorageInterface $storageClient
      * @param \Spryker\Client\CategoryStorage\Dependency\Service\CategoryStorageToSynchronizationServiceInterface $synchronizationService
      */
     public function __construct(CategoryStorageToStorageInterface $storageClient, CategoryStorageToSynchronizationServiceInterface $synchronizationService)

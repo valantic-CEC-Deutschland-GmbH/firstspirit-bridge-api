@@ -9,6 +9,7 @@ use Spryker\Client\Store\StoreClientInterface;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
+use ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface;
 
 /**
  * @method \ValanticSpryker\Zed\CategoryFirstSpiritApi\CategoryFirstSpiritApiConfig getConfig()
@@ -16,6 +17,8 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 class CategoryFirstSpiritApiDependencyProvider extends AbstractBundleDependencyProvider
 {
     public const CLIENT_CATEGORY_STORAGE = 'CLIENT_CATEGORY_STORAGE';
+
+    public const CLIENT_FIRST_SPIRIT_API = 'CLIENT_FIRST_SPIRIT_API';
 
     public const CLIENT_STORE = 'CLIENT_STORE';
 
@@ -31,6 +34,7 @@ class CategoryFirstSpiritApiDependencyProvider extends AbstractBundleDependencyP
         $container = parent::provideBusinessLayerDependencies($container);
 
         $container = $this->addCategoryStorageClient($container);
+        $container = $this->addFirstSpiritApiClient($container);
         $container = $this->addStoreClient($container);
         $container = $this->addLocaleFacade($container);
 
@@ -46,6 +50,20 @@ class CategoryFirstSpiritApiDependencyProvider extends AbstractBundleDependencyP
     {
         $container->set(static::CLIENT_CATEGORY_STORAGE, function (Container $container): CategoryStorageClientInterface {
             return $container->getLocator()->categoryStorage()->client();
+        });
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    private function addFirstSpiritApiClient(Container $container): Container
+    {
+        $container->set(static::CLIENT_FIRST_SPIRIT_API, function (Container $container): FirstSpiritApiClientInterface {
+            return $container->getLocator()->firstSpiritApi()->client();
         });
 
         return $container;

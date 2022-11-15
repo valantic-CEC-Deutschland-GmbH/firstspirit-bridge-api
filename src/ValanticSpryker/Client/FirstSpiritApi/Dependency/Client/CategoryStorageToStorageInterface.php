@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace ValanticSpryker\Client\CategoryStorage\Dependency\Client;
+namespace ValanticSpryker\Client\FirstSpiritApi\Dependency\Client;
 
 use Spryker\Client\CategoryStorage\Dependency\Client\CategoryStorageToStorageInterface as SprykerCategoryStorageToStorageInterface;
 

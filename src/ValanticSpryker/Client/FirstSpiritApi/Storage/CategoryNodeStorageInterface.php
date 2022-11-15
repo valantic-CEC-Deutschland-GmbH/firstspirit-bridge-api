@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace ValanticSpryker\Client\CategoryStorage\Storage;
+namespace ValanticSpryker\Client\FirstSpiritApi\Storage;
 
 use Generated\Shared\Transfer\CategoryNodeStoragePaginationTransfer;
 use Spryker\Client\CategoryStorage\Storage\CategoryNodeStorageInterface as SprykerCategoryNodeStorageInterface;

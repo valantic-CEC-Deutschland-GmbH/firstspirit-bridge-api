@@ -8,6 +8,7 @@ use Spryker\Client\CategoryStorage\CategoryStorageClientInterface;
 use Spryker\Client\Store\StoreClientInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
+use ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface;
 use ValanticSpryker\Zed\CategoryFirstSpiritApi\Business\Model\Reader\CategoryFirstSpiritReader;
 use ValanticSpryker\Zed\CategoryFirstSpiritApi\CategoryFirstSpiritApiDependencyProvider;
 
@@ -26,11 +27,12 @@ class CategoryFirstSpiritApiBusinessFactory extends AbstractBusinessFactory
             $this->getLocaleFacade(),
             $this->getConfig(),
             $this->getStoreClient(),
+            $this->getFirstSpiritApiClient(),
         );
     }
 
     /**
-     * @return \ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface
+     * @return \Spryker\Client\CategoryStorage\CategoryStorageClientInterface
      */
     private function getCategoryStorageClient(): CategoryStorageClientInterface
     {
@@ -51,5 +53,13 @@ class CategoryFirstSpiritApiBusinessFactory extends AbstractBusinessFactory
     private function getLocaleFacade(): LocaleFacadeInterface
     {
         return $this->getProvidedDependency(CategoryFirstSpiritApiDependencyProvider::FACADE_LOCALE);
+    }
+
+    /**
+     * @return \ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface
+     */
+    private function getFirstSpiritApiClient(): FirstSpiritApiClientInterface
+    {
+        return $this->getProvidedDependency(CategoryFirstSpiritApiDependencyProvider::CLIENT_FIRST_SPIRIT_API);
     }
 }

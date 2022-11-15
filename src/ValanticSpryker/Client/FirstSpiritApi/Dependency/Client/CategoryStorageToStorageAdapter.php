@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace ValanticSpryker\Client\CategoryStorage\Dependency\Client;
+namespace ValanticSpryker\Client\FirstSpiritApi\Dependency\Client;
 
 use Spryker\Client\CategoryStorage\Dependency\Client\CategoryStorageToStorageBridge as SprykerCategoryStorageToStorageBridge;
-use ValanticSpryker\Client\CategoryStorage\Dependency\Client\CategoryStorageToStorageInterface;
+use ValanticSpryker\Client\FirstSpiritApi\Dependency\Client\CategoryStorageToStorageInterface;
 
 class CategoryStorageToStorageAdapter extends SprykerCategoryStorageToStorageBridge implements CategoryStorageToStorageInterface
 {

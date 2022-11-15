@@ -2,16 +2,16 @@
 
 declare(strict_types = 1);
 
-namespace ValanticSpryker\Client\CategoryStorage;
+namespace ValanticSpryker\Client\FirstSpiritApi;
 
 use Generated\Shared\Transfer\CategoryNodeStoragePaginationTransfer;
-use Spryker\Client\CategoryStorage\CategoryStorageClient as SprykerCategoryStorageClient;
-use ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface;
+use Spryker\Client\Kernel\AbstractClient;
+use ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface;
 
 /**
- * @method \ValanticSpryker\Client\CategoryStorage\CategoryStorageFactory getFactory()
+ * @method \ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiFactory getFactory()
  */
-class CategoryStorageClient extends SprykerCategoryStorageClient implements CategoryStorageClientInterface
+class FirstSpiritApiClient extends AbstractClient implements FirstSpiritApiClientInterface
 {
     /**
      * Specification:

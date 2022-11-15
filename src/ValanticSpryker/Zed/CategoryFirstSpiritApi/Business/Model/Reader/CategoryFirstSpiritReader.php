@@ -10,17 +10,18 @@ use Generated\Shared\Transfer\FirstSpiritApiCollectionTransfer;
 use Generated\Shared\Transfer\FirstSpiritApiItemTransfer;
 use Generated\Shared\Transfer\FirstSpiritApiPaginationTransfer;
 use Generated\Shared\Transfer\FirstSpiritApiRequestTransfer;
+use Spryker\Client\CategoryStorage\CategoryStorageClientInterface;
 use Spryker\Client\Store\StoreClientInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Symfony\Component\HttpFoundation\Response;
-use ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface;
+use ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface;
 use ValanticSpryker\Zed\CmsFirstSpiritApi\CmsFirstSpiritApiConfig;
 use ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig;
 
 class CategoryFirstSpiritReader
 {
     /**
-     * @var \ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface
+     * @var \Spryker\Client\CategoryStorage\CategoryStorageClientInterface
      */
     private CategoryStorageClientInterface $storageClient;
 
@@ -40,7 +41,12 @@ class CategoryFirstSpiritReader
     private LocaleFacadeInterface $localeFacade;
 
     /**
-     * @param \ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface $storageClient
+     * @var \ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface
+     */
+    private FirstSpiritApiClientInterface $firstSpiritApiClient;
+
+    /**
+     * @param \Spryker\Client\CategoryStorage\CategoryStorageClientInterface $storageClient
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig $firstSpiritApiConfig
      * @param \Spryker\Client\Store\StoreClientInterface $storeClient
@@ -49,12 +55,14 @@ class CategoryFirstSpiritReader
         CategoryStorageClientInterface $storageClient,
         LocaleFacadeInterface $localeFacade,
         FirstSpiritApiConfig $firstSpiritApiConfig,
-        StoreClientInterface $storeClient
+        StoreClientInterface $storeClient,
+        FirstSpiritApiClientInterface $firstSpiritApiClient
     ) {
         $this->storageClient = $storageClient;
         $this->firstSpiritApiConfig = $firstSpiritApiConfig;
         $this->storeClient = $storeClient;
         $this->localeFacade = $localeFacade;
+        $this->firstSpiritApiClient = $firstSpiritApiClient;
     }
 
     /**
@@ -153,7 +161,7 @@ class CategoryFirstSpiritReader
             return $this->getAllCategoriesFilteredByParentId($lang, $page, $pageSize, $parentId);
         }
 
-        $categoryNodeStorageTransfer = $this->storageClient->getAllCategories($lang, $this->storeClient->getCurrentStore()->getName(), $page, $pageSize);
+        $categoryNodeStorageTransfer = $this->firstSpiritApiClient->getAllCategories($lang, $this->storeClient->getCurrentStore()->getName(), $page, $pageSize);
 
         $result = new FirstSpiritApiCollectionTransfer();
 
