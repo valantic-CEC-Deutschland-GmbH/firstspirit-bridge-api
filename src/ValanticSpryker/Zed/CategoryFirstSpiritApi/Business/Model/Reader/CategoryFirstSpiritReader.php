@@ -81,7 +81,7 @@ class CategoryFirstSpiritReader
         $parameters = $apiRequestTransfer->getQueryData();
         $lang = $this->getLocaleFromRequestParameters($parameters);
 
-        $categories = $this->storageClient->getCategoryNodeByIds($ids, $lang, $this->storeClient->getCurrentStore()->getName());
+        $categories = $this->firstSpiritApiClient->getCategoryNodeByIds($ids, $lang, $this->storeClient->getCurrentStore()->getName());
 
         if (count($categories) === 0) {
             $result->setStatusCode(Response::HTTP_NOT_FOUND);
@@ -102,7 +102,7 @@ class CategoryFirstSpiritReader
     public function getCategoryById(int $id): FirstSpiritApiItemTransfer
     {
         $lang = $this->getDefaultLocale();
-        $category = $this->storageClient->getCategoryNodeById($id, $lang, $this->storeClient->getCurrentStore()->getName());
+        $category = $this->firstSpiritApiClient->getCategoryNodeById($id, $lang, $this->storeClient->getCurrentStore()->getName());
 
         if ($category->getIdCategory() === null) {
             return (new FirstSpiritApiItemTransfer())->setStatusCode(Response::HTTP_NOT_FOUND);
