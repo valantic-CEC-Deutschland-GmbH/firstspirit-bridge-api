@@ -5,22 +5,22 @@ declare(strict_types = 1);
 namespace ValanticSpryker\Zed\CategoryFirstSpiritApi\Business\Model\Reader;
 
 use ArrayObject;
-use Codeception\Util\HttpCode;
 use Generated\Shared\Transfer\CategoryNodeStorageTransfer;
 use Generated\Shared\Transfer\FirstSpiritApiCollectionTransfer;
 use Generated\Shared\Transfer\FirstSpiritApiItemTransfer;
 use Generated\Shared\Transfer\FirstSpiritApiPaginationTransfer;
 use Generated\Shared\Transfer\FirstSpiritApiRequestTransfer;
-use Pyz\Client\CategoryStorage\CategoryStorageClientInterface;
 use Spryker\Client\Store\StoreClientInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
+use Symfony\Component\HttpFoundation\Response;
+use ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface;
 use ValanticSpryker\Zed\CmsFirstSpiritApi\CmsFirstSpiritApiConfig;
 use ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig;
 
 class CategoryFirstSpiritReader
 {
     /**
-     * @var \Pyz\Client\CategoryStorage\CategoryStorageClientInterface
+     * @var \ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface
      */
     private CategoryStorageClientInterface $storageClient;
 
@@ -40,7 +40,7 @@ class CategoryFirstSpiritReader
     private LocaleFacadeInterface $localeFacade;
 
     /**
-     * @param \Pyz\Client\CategoryStorage\CategoryStorageClientInterface $storageClient
+     * @param \ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface $storageClient
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig $firstSpiritApiConfig
      * @param \Spryker\Client\Store\StoreClientInterface $storeClient
@@ -76,7 +76,7 @@ class CategoryFirstSpiritReader
         $categories = $this->storageClient->getCategoryNodeByIds($ids, $lang, $this->storeClient->getCurrentStore()->getName());
 
         if (count($categories) === 0) {
-            $result->setStatusCode(HttpCode::NOT_FOUND);
+            $result->setStatusCode(Response::HTTP_NOT_FOUND);
         }
 
         foreach ($categories as $category) {
@@ -97,7 +97,7 @@ class CategoryFirstSpiritReader
         $category = $this->storageClient->getCategoryNodeById($id, $lang, $this->storeClient->getCurrentStore()->getName());
 
         if ($category->getIdCategory() === null) {
-            return (new FirstSpiritApiItemTransfer())->setStatusCode(HttpCode::NOT_FOUND);
+            return (new FirstSpiritApiItemTransfer())->setStatusCode(Response::HTTP_NOT_FOUND);
         }
 
         return (new FirstSpiritApiItemTransfer())->setData($this->mapCategoryNodeData($category));
@@ -123,7 +123,7 @@ class CategoryFirstSpiritReader
         $result = new FirstSpiritApiCollectionTransfer();
 
         if ($categoryTree->count() === 0) {
-            $result->setStatusCode(HttpCode::NOT_FOUND);
+            $result->setStatusCode(Response::HTTP_NOT_FOUND);
         }
 
         foreach ($categoryTree as $category) {

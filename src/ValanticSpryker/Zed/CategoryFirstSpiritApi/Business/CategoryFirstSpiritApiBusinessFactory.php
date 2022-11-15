@@ -30,7 +30,7 @@ class CategoryFirstSpiritApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Pyz\Client\CategoryStorage\CategoryStorageClientInterface
+     * @return \ValanticSpryker\Client\CategoryStorage\CategoryStorageClientInterface
      */
     private function getCategoryStorageClient(): CategoryStorageClientInterface
     {
