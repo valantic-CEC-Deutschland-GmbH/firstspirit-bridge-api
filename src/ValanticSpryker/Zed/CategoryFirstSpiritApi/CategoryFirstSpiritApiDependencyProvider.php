@@ -16,12 +16,24 @@ use ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface;
  */
 class CategoryFirstSpiritApiDependencyProvider extends AbstractBundleDependencyProvider
 {
+    /**
+     * @var string
+     */
     public const CLIENT_CATEGORY_STORAGE = 'CLIENT_CATEGORY_STORAGE';
 
+    /**
+     * @var string
+     */
     public const CLIENT_FIRST_SPIRIT_API = 'CLIENT_FIRST_SPIRIT_API';
 
+    /**
+     * @var string
+     */
     public const CLIENT_STORE = 'CLIENT_STORE';
 
+    /**
+     * @var string
+     */
     public const FACADE_LOCALE = 'FACADE_LOCALE';
 
     /**

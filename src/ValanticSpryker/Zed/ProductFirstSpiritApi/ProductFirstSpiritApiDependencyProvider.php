@@ -16,9 +16,24 @@ use Spryker\Zed\ProductStorage\Business\ProductStorageFacadeInterface;
  */
 class ProductFirstSpiritApiDependencyProvider extends AbstractBundleDependencyProvider
 {
+    /**
+     * @var string
+     */
     public const PRODUCT_STORAGE_FACADE = 'PRODUCT_STORAGE_FACADE';
+
+    /**
+     * @var string
+     */
     public const PRODUCT_STORAGE_CLIENT = 'PRODUCT_STORAGE_CLIENT';
+
+    /**
+     * @var string
+     */
     public const CATALOG_CLIENT = 'CATALOG_CLIENT';
+
+    /**
+     * @var string
+     */
     public const LOCALE_FACADE = 'LOCALE_FACADE';
 
     /**

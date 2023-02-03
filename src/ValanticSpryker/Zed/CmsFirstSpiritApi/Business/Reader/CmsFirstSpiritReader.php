@@ -82,8 +82,10 @@ class CmsFirstSpiritReader implements CmsFirstSpiritReaderInterface
      *
      * @return array<int>
      */
-    private function findCmsPageIdsBySearchQuery(FirstSpiritApiRequestTransfer $apiRequestTransfer, FirstSpiritApiCollectionTransfer $cmsFirstSpiritCollectionTransfer): array
-    {
+    private function findCmsPageIdsBySearchQuery(
+        FirstSpiritApiRequestTransfer $apiRequestTransfer,
+        FirstSpiritApiCollectionTransfer $cmsFirstSpiritCollectionTransfer
+    ): array {
         $page = (int)($apiRequestTransfer->getQueryData()[CmsFirstSpiritApiConfig::FIRST_SPIRIT_PAGINATION_KEY] ?? 1);
 
         $searchQuery = $apiRequestTransfer->getQueryData()['q'] ?? '';
@@ -107,8 +109,12 @@ class CmsFirstSpiritReader implements CmsFirstSpiritReaderInterface
      *
      * @return \Generated\Shared\Transfer\FirstSpiritApiCollectionTransfer
      */
-    private function findCmsPagesByProvidedIds(array $cmsPageIds, FirstSpiritApiCollectionTransfer $cmsFirstSpiritCollectionTransfer, string $locale, string $store): FirstSpiritApiCollectionTransfer
-    {
+    private function findCmsPagesByProvidedIds(
+        array $cmsPageIds,
+        FirstSpiritApiCollectionTransfer $cmsFirstSpiritCollectionTransfer,
+        string $locale,
+        string $store
+    ): FirstSpiritApiCollectionTransfer {
         $cmsPageIds = array_map(static fn ($pageId) => (int)$pageId, $cmsPageIds);
 
         $cmsPageStorageTransfers = $this->cmsStorageClient->getCmsPageStorageByIds($cmsPageIds, $locale, $store);
@@ -140,8 +146,10 @@ class CmsFirstSpiritReader implements CmsFirstSpiritReaderInterface
      *
      * @return \Generated\Shared\Transfer\FirstSpiritApiCollectionTransfer
      */
-    private function mapCmsStorageTransferToApiCollectionTransfer(FirstSpiritApiCollectionTransfer $cmsFirstSpiritCollectionTransfer, array $cmsPageStorageTransfers): FirstSpiritApiCollectionTransfer
-    {
+    private function mapCmsStorageTransferToApiCollectionTransfer(
+        FirstSpiritApiCollectionTransfer $cmsFirstSpiritCollectionTransfer,
+        array $cmsPageStorageTransfers
+    ): FirstSpiritApiCollectionTransfer {
         foreach ($cmsPageStorageTransfers as $cmsPageStorageTransfer) {
             $cmsPageName = $cmsPageStorageTransfer->getName();
             $cmsPageId = $cmsPageStorageTransfer->getIdCmsPage();

@@ -23,6 +23,9 @@ class FirstSpiritApiControllerEventListener implements FirstSpiritApiControllerE
 {
     use LoggerTrait;
 
+    /**
+     * @var string
+     */
     public const REQUEST_URI = 'REQUEST_URI';
 
     /**

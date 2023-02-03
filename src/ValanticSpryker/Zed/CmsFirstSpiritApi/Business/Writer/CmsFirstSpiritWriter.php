@@ -141,7 +141,7 @@ class CmsFirstSpiritWriter implements CmsFirstSpiritWriterInterface
             $createdPageId = $this->cmsFacade->createPage($pageTransfer);
             $this->publishCmsPage($createdPageId);
         } catch (Exception $e) {
-            $this->getLogger()->critical("First spirit API CMS add page request failed:" . $e->getMessage());
+            $this->getLogger()->critical('First spirit API CMS add page request failed:' . $e->getMessage());
 
             return $this->responseHandler->setResponseToBadTransfer($responseTransfer);
         }
@@ -195,7 +195,7 @@ class CmsFirstSpiritWriter implements CmsFirstSpiritWriterInterface
             $cmsPage = $this->cmsFacade->updatePage($cmsPage);
             $this->publishCmsPage($cmsPage->getFkPage());
         } catch (Throwable $e) {
-            $this->getLogger()->critical("First spirit API CMS update update request failed:" . $e->getMessage());
+            $this->getLogger()->critical('First spirit API CMS update update request failed:' . $e->getMessage());
 
             return $this->responseHandler->setResponseToInternalError($responseTransfer);
         }
@@ -217,7 +217,7 @@ class CmsFirstSpiritWriter implements CmsFirstSpiritWriterInterface
                 ->deletePageById($id);
             $this->unpublishCmsPage($id);
         } catch (Throwable $e) {
-            $this->getLogger()->critical("First spirit API delete request failed:" . $e->getMessage());
+            $this->getLogger()->critical('First spirit API delete request failed:' . $e->getMessage());
 
             return $this->responseHandler->setResponseToInternalError($transfer);
         }

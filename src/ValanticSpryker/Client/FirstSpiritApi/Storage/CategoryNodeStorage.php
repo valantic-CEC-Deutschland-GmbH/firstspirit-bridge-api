@@ -13,7 +13,6 @@ use Spryker\Client\CategoryStorage\Storage\CategoryNodeStorage as SprykerCategor
 use Spryker\Client\Storage\Redis\Service;
 use Spryker\Shared\CategoryStorage\CategoryStorageConstants;
 use ValanticSpryker\Client\FirstSpiritApi\Dependency\Client\CategoryStorageToStorageInterface;
-use ValanticSpryker\Client\FirstSpiritApi\Storage\CategoryNodeStorageInterface;
 
 class CategoryNodeStorage extends SprykerCategoryNodeStorage implements CategoryNodeStorageInterface
 {
@@ -98,8 +97,11 @@ class CategoryNodeStorage extends SprykerCategoryNodeStorage implements Category
      *
      * @return \Generated\Shared\Transfer\CategoryNodeStorageTransfer|null
      */
-    protected function mapCategoryNodeStorageDataToCategoryNodeStorageTransfer(?string $categoryNodeStorageData, string $localeName, string $storeName): ?CategoryNodeStorageTransfer
-    {
+    protected function mapCategoryNodeStorageDataToCategoryNodeStorageTransfer(
+        ?string $categoryNodeStorageData,
+        string $localeName,
+        string $storeName
+    ): ?CategoryNodeStorageTransfer {
         if ($categoryNodeStorageData === null) {
             return null;
         }

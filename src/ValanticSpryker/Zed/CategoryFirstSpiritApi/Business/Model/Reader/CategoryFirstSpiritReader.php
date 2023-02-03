@@ -50,6 +50,7 @@ class CategoryFirstSpiritReader
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig $firstSpiritApiConfig
      * @param \Spryker\Client\Store\StoreClientInterface $storeClient
+     * @param \ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface $firstSpiritApiClient
      */
     public function __construct(
         CategoryStorageClientInterface $storageClient,

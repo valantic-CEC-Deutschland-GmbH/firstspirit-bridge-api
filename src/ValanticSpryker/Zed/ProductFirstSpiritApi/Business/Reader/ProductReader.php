@@ -18,8 +18,19 @@ use ValanticSpryker\Zed\ProductFirstSpiritApi\ProductFirstSpiritApiConfig;
 
 class ProductReader
 {
+    /**
+     * @var string
+     */
     private const CATEGORY_ID = 'categoryId';
+
+    /**
+     * @var string
+     */
     private const CATEGORY = 'category';
+
+    /**
+     * @var string
+     */
     private const KEY_PRODUCTS_PER_PAGE = 'ipp';
 
     /**

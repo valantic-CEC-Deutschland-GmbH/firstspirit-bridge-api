@@ -13,9 +13,24 @@ use Spryker\Zed\Kernel\Container;
  */
 class FirstSpiritApiDependencyProvider extends AbstractBundleDependencyProvider
 {
+    /**
+     * @var string
+     */
     public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
+
+    /**
+     * @var string
+     */
     public const PLUGINS_FIRST_SPIRIT_API_VALIDATOR = 'PLUGINS_FIRST_SPIRIT_API_VALIDATOR';
+
+    /**
+     * @var string
+     */
     public const PLUGINS_FIRST_SPIRIT_API_RESOURCE = 'PLUGINS_FIRST_SPIRIT_API_RESOURCES';
+
+    /**
+     * @var string
+     */
     public const PLUGINS_FIRST_SPIRIT_API_REQUEST_TRANSFER_FILTER = 'PLUGINS_FIRST_SPIRIT_API_REQUEST_TRANSFER_FILTER';
 
     /**

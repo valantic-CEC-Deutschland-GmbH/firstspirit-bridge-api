@@ -207,7 +207,7 @@ class UrlResolverFirstSpiritReader implements UrlResolverFirstSpiritReaderInterf
         $url = $this->concatenateWithBaseUrl($url);
 
         $collectionTransfer
-            ->setData(["url" => $url]);
+            ->setData(['url' => $url]);
 
         return $collectionTransfer;
     }

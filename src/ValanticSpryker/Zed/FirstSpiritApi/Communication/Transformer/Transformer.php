@@ -52,8 +52,11 @@ class Transformer implements TransformerInterface
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function transform(FirstSpiritApiRequestTransfer $apiRequestTransfer, FirstSpiritApiResponseTransfer $apiResponseTransfer, Response $response): Response
-    {
+    public function transform(
+        FirstSpiritApiRequestTransfer $apiRequestTransfer,
+        FirstSpiritApiResponseTransfer $apiResponseTransfer,
+        Response $response
+    ): Response {
         $headers = $apiResponseTransfer->getHeaders() + $this->getDefaultResponseHeaders($apiRequestTransfer);
         $headers = $this->addPaginationHeadersIfRequired($headers, $apiResponseTransfer);
         $response->headers->add($headers);
@@ -99,8 +102,11 @@ class Transformer implements TransformerInterface
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function addResponseContent(FirstSpiritApiRequestTransfer $apiRequestTransfer, FirstSpiritApiResponseTransfer $apiResponseTransfer, Response $response): Response
-    {
+    private function addResponseContent(
+        FirstSpiritApiRequestTransfer $apiRequestTransfer,
+        FirstSpiritApiResponseTransfer $apiResponseTransfer,
+        Response $response
+    ): Response {
         if ($this->isContentless($apiResponseTransfer)) {
             return $response;
         }

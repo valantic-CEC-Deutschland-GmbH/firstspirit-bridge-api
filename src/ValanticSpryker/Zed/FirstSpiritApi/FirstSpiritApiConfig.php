@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace ValanticSpryker\Zed\FirstSpiritApi;
 
-use ValanticSpryker\Shared\FirstSpiritApi\FirstSpiritApiConstants;
 use Spryker\Zed\Kernel\AbstractBundleConfig;
+use ValanticSpryker\Shared\FirstSpiritApi\FirstSpiritApiConstants;
 
 class FirstSpiritApiConfig extends AbstractBundleConfig
 {
@@ -71,6 +71,7 @@ class FirstSpiritApiConfig extends AbstractBundleConfig
      * @var string
      */
     public const ACTION_HEAD = 'head';
+
     /**
      * @api
      *

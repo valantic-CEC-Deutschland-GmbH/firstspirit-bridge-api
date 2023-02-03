@@ -49,8 +49,10 @@ class Processor implements ProcessorInterface
      *
      * @return \Generated\Shared\Transfer\FirstSpiritApiResponseTransfer
      */
-    public function postProcess(FirstSpiritApiRequestTransfer $apiRequestTransfer, FirstSpiritApiResponseTransfer $apiResponseTransfer): FirstSpiritApiResponseTransfer
-    {
+    public function postProcess(
+        FirstSpiritApiRequestTransfer $apiRequestTransfer,
+        FirstSpiritApiResponseTransfer $apiResponseTransfer
+    ): FirstSpiritApiResponseTransfer {
         foreach ($this->postProcessStack as $postProcessor) {
             $apiResponseTransfer = $postProcessor->process($apiRequestTransfer, $apiResponseTransfer);
         }

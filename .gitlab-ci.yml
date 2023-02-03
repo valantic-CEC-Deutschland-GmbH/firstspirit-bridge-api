@@ -1,4 +1,4 @@
-image: registry.gitlab.nxs360.com/docker/php:7.3-cli
+image: registry.gitlab.nxs360.com/docker/php:8.1-cli
 
 stages:
   - validation
@@ -9,6 +9,13 @@ composer:validate:
   stage: validation
   script:
     - composer validate
+
+code:style:
+  stage: validation
+  script:
+    - composer install -o
+    - composer cs-check
+    - composer md-check
 
 deploy:composer:
   stage: deploy

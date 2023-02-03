@@ -15,5 +15,8 @@ interface PostProcessorInterface
      *
      * @return \Generated\Shared\Transfer\FirstSpiritApiResponseTransfer
      */
-    public function process(FirstSpiritApiRequestTransfer $apiRequestTransfer, FirstSpiritApiResponseTransfer $apiResponseTransfer): FirstSpiritApiResponseTransfer;
+    public function process(
+        FirstSpiritApiRequestTransfer $apiRequestTransfer,
+        FirstSpiritApiResponseTransfer $apiResponseTransfer
+    ): FirstSpiritApiResponseTransfer;
 }

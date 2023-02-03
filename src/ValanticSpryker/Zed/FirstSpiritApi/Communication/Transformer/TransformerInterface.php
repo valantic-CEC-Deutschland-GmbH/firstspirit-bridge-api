@@ -17,7 +17,11 @@ interface TransformerInterface
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function transform(FirstSpiritApiRequestTransfer $apiRequestTransfer, FirstSpiritApiResponseTransfer $apiResponseTransfer, Response $response): Response;
+    public function transform(
+        FirstSpiritApiRequestTransfer $apiRequestTransfer,
+        FirstSpiritApiResponseTransfer $apiResponseTransfer,
+        Response $response
+    ): Response;
 
     /**
      * @param \Generated\Shared\Transfer\FirstSpiritApiResponseTransfer $apiResponseTransfer

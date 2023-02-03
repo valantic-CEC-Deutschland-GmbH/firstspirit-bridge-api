@@ -21,8 +21,10 @@ class FirstSpiritApiResponseMapper implements FirstSpiritApiResponseMapperInterf
     /**
      * @inheritDoc
      */
-    public function mapApiItemTransferToApiResponseTransfer(FirstSpiritApiItemTransfer $apiItemTransfer, FirstSpiritApiResponseTransfer $apiResponseTransfer): FirstSpiritApiResponseTransfer
-    {
+    public function mapApiItemTransferToApiResponseTransfer(
+        FirstSpiritApiItemTransfer $apiItemTransfer,
+        FirstSpiritApiResponseTransfer $apiResponseTransfer
+    ): FirstSpiritApiResponseTransfer {
         if ($apiItemTransfer->getValidationErrors()->count()) {
             return $this->mapValidationErrorTransfersToApiResponseTransfer($apiItemTransfer->getValidationErrors(), $apiResponseTransfer);
         }
@@ -39,8 +41,10 @@ class FirstSpiritApiResponseMapper implements FirstSpiritApiResponseMapperInterf
     /**
      * @inheritDoc
      */
-    public function mapApiCollectionTransferToApiResponseTransfer(FirstSpiritApiCollectionTransfer $apiCollectionTransfer, FirstSpiritApiResponseTransfer $apiResponseTransfer): FirstSpiritApiResponseTransfer
-    {
+    public function mapApiCollectionTransferToApiResponseTransfer(
+        FirstSpiritApiCollectionTransfer $apiCollectionTransfer,
+        FirstSpiritApiResponseTransfer $apiResponseTransfer
+    ): FirstSpiritApiResponseTransfer {
         if ($apiCollectionTransfer->getValidationErrors()->count()) {
             return $this->mapValidationErrorTransfersToApiResponseTransfer($apiCollectionTransfer->getValidationErrors(), $apiResponseTransfer);
         }
@@ -55,8 +59,10 @@ class FirstSpiritApiResponseMapper implements FirstSpiritApiResponseMapperInterf
     /**
      * @inheritDoc
      */
-    public function mapValidationErrorTransfersToApiResponseTransfer(ArrayObject $apiValidationErrorTransfers, FirstSpiritApiResponseTransfer $apiResponseTransfer): FirstSpiritApiResponseTransfer
-    {
+    public function mapValidationErrorTransfersToApiResponseTransfer(
+        ArrayObject $apiValidationErrorTransfers,
+        FirstSpiritApiResponseTransfer $apiResponseTransfer
+    ): FirstSpiritApiResponseTransfer {
         return $apiResponseTransfer
             ->setCode(FirstSpiritApiConfig::HTTP_CODE_VALIDATION_ERRORS)
             ->setMessage(static::MESSAGE_VALIDATION_ERRORS)

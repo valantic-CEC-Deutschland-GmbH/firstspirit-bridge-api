@@ -12,14 +12,49 @@ use ValanticSpryker\Shared\ProductFirstSpiritApi\ProductFirstSpiritApiConstants;
 
 class ProductFirstSpiritApiBusinessMapper implements ProductFirstSpiritApiBusinessMapperInterface
 {
+    /**
+     * @var string
+     */
     private const KEY_ID_PRODUCT_ABSTRACT = 'id_product_abstract';
+
+    /**
+     * @var string
+     */
     private const KEY_ID_PRODUCT_CONCRETE = 'id_product_concrete';
+
+    /**
+     * @var string
+     */
     private const KEY_ID = 'id';
+
+    /**
+     * @var string
+     */
     private const KEY_LABEL = 'label';
+
+    /**
+     * @var string
+     */
     private const KEY_URL = 'url';
+
+    /**
+     * @var string
+     */
     private const KEY_EXTRACT = 'extract';
+
+    /**
+     * @var string
+     */
     private const KEY_IMAGE = 'image';
+
+    /**
+     * @var string
+     */
     private const KEY_THUMBNAIL = 'thumbnail';
+
+    /**
+     * @var string
+     */
     private const KEY_NAME = 'name';
 
     /**

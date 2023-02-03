@@ -7,7 +7,6 @@ namespace ValanticSpryker\Client\FirstSpiritApi;
 use Generated\Shared\Transfer\CategoryNodeStoragePaginationTransfer;
 use Generated\Shared\Transfer\CategoryNodeStorageTransfer;
 use Spryker\Client\Kernel\AbstractClient;
-use ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiClientInterface;
 
 /**
  * @method \ValanticSpryker\Client\FirstSpiritApi\FirstSpiritApiFactory getFactory()

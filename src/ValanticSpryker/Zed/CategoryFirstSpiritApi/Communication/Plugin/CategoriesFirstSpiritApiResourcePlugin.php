@@ -22,6 +22,9 @@ use ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig;
  */
 class CategoriesFirstSpiritApiResourcePlugin extends AbstractPlugin implements FirstSpiritApiResourcePluginInterface, OptionsForItemInterface
 {
+    /**
+     * @var string
+     */
     public const RESOURCE_NAME = 'categories';
 
     /**
