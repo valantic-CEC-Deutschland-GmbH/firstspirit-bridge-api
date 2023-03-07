@@ -65,7 +65,7 @@
     "cs-fix": "phpcbf --standard=phpcs.xml src",
     "cs-check": "phpcs -s --standard=phpcs.xml --report=full src",
     "md-check": "phpmd src/ text phpmd-ruleset.xml --minimumpriority 2",
-    "stan": "vendor/bin/phpstan analyze -l 4 src/ValanticSpryker/",
+    "stan": "php -d memory_limit=3072M vendor/bin/phpstan analyze -l 4 src/ValanticSpryker/",
     "test": "codecept run --env standalone --coverage-text --no-colors --coverage-html"
   }
 }
