@@ -25,6 +25,8 @@ interface FirstSpiritApiClientInterface
     public function getAllCategories(string $localeName, string $storeName, int $page, int $pageSize): CategoryNodeStoragePaginationTransfer;
 
     /**
+     * Get a category node by id
+     *
      * @api
      *
      * @param int $idCategoryNode
@@ -36,6 +38,8 @@ interface FirstSpiritApiClientInterface
     public function getCategoryNodeById(int $idCategoryNode, string $localeName, string $storeName): CategoryNodeStorageTransfer;
 
     /**
+     * get a category node by a set of ids
+     *
      * @api
      *
      * @param array<int> $categoryNodeIds
