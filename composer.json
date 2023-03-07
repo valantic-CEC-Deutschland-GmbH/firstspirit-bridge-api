@@ -5,54 +5,66 @@
     "license": "MIT",
     "require": {
         "php": ">=8.0",
-        "spryker/kernel": "^3.70",
-        "spryker/store": "^1.16",
-        "spryker/locale": "^3.8",
-        "spryker/transfer": "^3.33",
-        "spryker/url-storage": "^1.15",
-        "spryker/category-storage": "^2.4",
-        "spryker/cms-storage": "^2.6",
-        "spryker/product-storage": "^1.36",
-        "spryker/catalog": "^5.7",
-        "spryker/api": "^0.4.1",
-        "spryker/event-dispatcher": "^1.3",
-        "spryker/cms-page-search": "^2.5"
+        "spryker/kernel": ">=3.70",
+        "spryker/store": ">=1.16",
+        "spryker/locale": ">=3.8",
+        "spryker/transfer": ">=3.33",
+        "spryker/url-storage": ">=1.15",
+        "spryker/category-storage": ">=2.4",
+        "spryker/cms-storage": ">=2.6",
+        "spryker/product-storage": ">=1.36",
+        "spryker/catalog": ">=5.7",
+        "spryker/api": ">=0.4.1",
+        "spryker/event-dispatcher": ">=1.3",
+        "spryker/cms-page-search": ">=2.5"
     },
-    "autoload": {
-        "psr-4": {
-            "ValanticSpryker\\": "src/ValanticSpryker/"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "gitlab-domains": [
-            "gitlab.nxs360.com"
-        ],
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
-    },
-    "authors": [
-        {
-            "name": "Valantic",
-            "homepage": "https://www.valantic.com"
-        }
-    ],
-    "keywords": [
-        "spryker"
-    ],
-    "include-path": [
-        "src/"
-    ],
-    "require-dev": {
-        "spryker/code-sniffer": "^0.17.18",
-        "spryker/architecture-sniffer": "^0.5.0",
-        "spryker/development": "^3.34"
-    },
-    "scripts": {
-        "cs-check": "phpcs -s --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml --report=full src",
-        "cs-fix": "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml src",
-        "md-check": "phpmd src/ text vendor/spryker/development/resources/phpmd/ruleset.xml --minimumpriority 2"
+  "autoload": {
+    "psr-4": {
+      "ValanticSpryker\\": "src/ValanticSpryker/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ValanticSprykerTest\\": "tests/ValanticSprykerTest/",
+      "Generated\\": "src/Generated/",
+      "Orm\\Zed\\": "src/Orm/Zed/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "gitlab-domains": [
+      "gitlab.nxs360.com"
+    ],
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "authors": [
+    {
+      "name": "Valantic",
+      "homepage": "https://www.valantic.com"
+    }
+  ],
+  "keywords": [
+    "spryker"
+  ],
+  "include-path": [
+    "src/"
+  ],
+  "require-dev": {
+    "fond-of-codeception/spryker": "^1.0 || ^2.0",
+    "spryker-sdk/phpstan-spryker": "*",
+    "spryker/architecture-sniffer": "*",
+    "spryker/code-sniffer": "*",
+    "spryker/development": "*",
+    "spryker/testify": "*"
+  },
+  "scripts": {
+    "cs-fix": "phpcbf --standard=phpcs.xml src",
+    "cs-check": "phpcs -s --standard=phpcs.xml --report=full src",
+    "md-check": "phpmd src/ text phpmd-ruleset.xml --minimumpriority 2",
+    "stan": "vendor/bin/phpstan analyze -l 4 src/ValanticSpryker/",
+    "test": "codecept run --env standalone --coverage-text --no-colors --coverage-html"
+  }
 }
