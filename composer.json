@@ -16,7 +16,8 @@
         "spryker/catalog": ">=5.7",
         "spryker/api": ">=0.4.1",
         "spryker/event-dispatcher": ">=1.3",
-        "spryker/cms-page-search": ">=2.5"
+        "spryker/cms-page-search": ">=2.5",
+        "spryker/product-image-storage": ">=1.13.0"
     },
   "autoload": {
     "psr-4": {

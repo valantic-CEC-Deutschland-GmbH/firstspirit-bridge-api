@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace ValanticSpryker\Zed\FirstSpiritApi\Business\Model\Processor\Pre\RestApiResource;
 
 use Generated\Shared\Transfer\FirstSpiritApiRequestTransfer;
+use Spryker\Zed\Api\ApiConfig;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use ValanticSpryker\Zed\FirstSpiritApi\Business\Model\Processor\Pre\PreProcessorInterface;
 use ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig;
