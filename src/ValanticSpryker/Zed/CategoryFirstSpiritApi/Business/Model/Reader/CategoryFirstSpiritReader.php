@@ -88,8 +88,15 @@ class CategoryFirstSpiritReader
             $result->setStatusCode(Response::HTTP_NOT_FOUND);
         }
 
-        foreach ($categories as $category) {
-            $result->addData($this->mapCategoryNodeData($category));
+        foreach ($ids as $id) {
+            $categoryNodeData = null;
+            $category = $categories[$id] ?? null;
+
+            if ($category) {
+                $categoryNodeData = $this->mapCategoryNodeData($category);
+            }
+
+            $result->addData($categoryNodeData);
         }
 
         return $result;

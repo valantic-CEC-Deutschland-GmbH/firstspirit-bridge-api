@@ -103,7 +103,7 @@ class CategoryNodeStorage extends SprykerCategoryNodeStorage implements Category
         string $storeName
     ): ?CategoryNodeStorageTransfer {
         if ($categoryNodeStorageData === null) {
-            return null;
+            return new CategoryNodeStorageTransfer();
         }
 
         return parent::mapCategoryNodeStorageDataToCategoryNodeStorageTransfer($categoryNodeStorageData, $localeName, $storeName);
