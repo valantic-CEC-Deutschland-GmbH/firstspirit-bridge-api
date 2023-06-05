@@ -10,6 +10,10 @@ parameters:
         - '#.*Call to an undefined method Orm\\Zed\\.*#'
         - '#Dead catch - Exception is never thrown in the try block.#'
 
+    excludePaths:
+        - '%rootDir%/../../../src/Generated/*'
+        - '%rootDir%/../../../src/Orm/*'
+
     bootstrapFiles:
         - '%rootDir%/../../../phpstan-bootstrap.php'
 
