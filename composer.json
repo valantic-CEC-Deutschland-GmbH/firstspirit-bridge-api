@@ -6,11 +6,11 @@
     "require": {
         "php": ">=8.0",
         "spryker/kernel": ">=3.70",
-        "spryker/store": ">=1.16",
+        "spryker/store": ">=1.19",
         "spryker/locale": ">=3.8",
         "spryker/transfer": ">=3.33",
         "spryker/url-storage": ">=1.15",
-        "spryker/category-storage": ">=2.4",
+        "spryker/category-storage": ">=2.7",
         "spryker/cms-storage": ">=2.6",
         "spryker/product-storage": ">=1.36",
         "spryker/catalog": ">=5.7",
