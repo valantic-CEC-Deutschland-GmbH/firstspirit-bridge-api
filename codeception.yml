@@ -39,4 +39,4 @@ env:
           generate_map_classes: true
           generate_propel_classes: true
           ide_auto_completion_source_directories:
-            '/data/src/': '*/*/'
+            './src/': '*/*/'
