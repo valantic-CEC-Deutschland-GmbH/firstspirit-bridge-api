@@ -131,10 +131,10 @@ class ProductFirstSpiritApiBusinessMapper implements ProductFirstSpiritApiBusine
                     $productResponseArray[self::KEY_EXTRACT] = basename($productConcreteStorage->getUrl());
                 }
             }
-            $images = $productAbstractStorage->getImages()->getArrayCopy()[0];
-            if ($images !== null) {
-                $productResponseArray[self::KEY_IMAGE] = $images->getExternalUrlLarge();
-                $productResponseArray[self::KEY_THUMBNAIL] = $images->getExternalUrlSmall();
+            $images = $productAbstractStorage->getImages()->getArrayCopy();
+            if (isset($images[0])) {
+                $productResponseArray[self::KEY_IMAGE] = $images[0]->getExternalUrlLarge();
+                $productResponseArray[self::KEY_THUMBNAIL] = $images[0]->getExternalUrlSmall();
             }
         }
 
