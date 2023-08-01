@@ -9,7 +9,7 @@
 
 1. Install dependency
 ```
-composer require valantic-cec/firstspirit-bridge-api
+composer require valantic-spryker-eco/firstspirit-bridge-api
 ```
 
 2. Add configuration to `config_default.php`
