@@ -1,5 +1,5 @@
 {
-    "name": "valantic-cec/firstspirit-bridge-api",
+    "name": "valantic-spryker-eco/firstspirit-bridge-api",
     "type": "library",
     "description": "Provides backend api for FS Bridge API",
     "license": "proprietary",
