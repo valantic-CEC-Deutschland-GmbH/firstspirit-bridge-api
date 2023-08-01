@@ -1,8 +1,6 @@
 # firstspirit-bridge-api
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.0-8892BF.svg)](https://php.net/)
-[![coverage report](https://gitlab.nxs360.com/packages/php/spryker/firstspirit-bridge-api/badges/master/pipeline.svg)](https://gitlab.nxs360.com/packages/php/spryker/firstspirit-bridge-api/-/pipelines?page=1&scope=all&ref=master)
-[![coverage report](https://gitlab.nxs360.com/packages/php/spryker/firstspirit-bridge-api/badges/master/coverage.svg)](https://packages.gitlab-pages.nxs360.com/php/spryker/firstspirit-bridge-api)
 
 # Description
 - Provides backend api for FS Bridge API
@@ -11,7 +9,7 @@
 
 1. Install dependency
 ```
-composer require valantic-spryker/firstspirit-bridge-api
+composer require valantic-cec/firstspirit-bridge-api
 ```
 
 2. Add configuration to `config_default.php`
