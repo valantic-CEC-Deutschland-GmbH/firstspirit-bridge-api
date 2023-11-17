@@ -64,13 +64,15 @@ class ProductReader
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \ValanticSpryker\Zed\ProductFirstSpiritApi\Business\Mapper\ProductFirstSpiritApiBusinessMapperInterface $businessMapper
      * @param \ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig $firstSpiritApiConfig
+     * @param array<\ValanticSpryker\Zed\ProductFirstSpiritApi\Communication\Dependency\Plugin\QueryExpanderPluginInterface> $queryDataExpanderPlugins
      */
     public function __construct(
         ProductStorageClientInterface $productStorageClient,
         CatalogClientInterface $catalogClient,
         LocaleFacadeInterface $localeFacade,
         ProductFirstSpiritApiBusinessMapperInterface $businessMapper,
-        FirstSpiritApiConfig $firstSpiritApiConfig
+        FirstSpiritApiConfig $firstSpiritApiConfig,
+        private array $queryDataExpanderPlugins = []
     ) {
         $this->productStorageClient = $productStorageClient;
         $this->catalogClient = $catalogClient;
@@ -121,8 +123,7 @@ class ProductReader
         $collectionTransfer = new FirstSpiritApiCollectionTransfer();
 
         $queryData = $apiRequestTransfer->getQueryData();
-        $queryData[self::KEY_PRODUCTS_PER_PAGE] = $this->firstSpiritApiConfig->getPagingSize();
-        $queryData = $this->replaceOldArrayKeyWithNewArrayKey($queryData, self::CATEGORY_ID, self::CATEGORY);
+        $queryData = $this->adjustQueryData($queryData);
         $searchString = $this->getRequestParameter($queryData, ProductFirstSpiritApiConfig::QUERY_STRING_PARAMETER);
         $searchResult = $this->catalogClient->catalogSearch($searchString, $queryData);
 
@@ -186,5 +187,34 @@ class ProductReader
         $locales = $this->localeFacade->getAvailableLocales();
 
         return $locales[$lang] ?? $currentLocale;
+    }
+
+    /**
+     * @param $queryData
+     *
+     * @return array
+     */
+    protected function adjustQueryData($queryData): array
+    {
+        $queryData[self::KEY_PRODUCTS_PER_PAGE] = $this->firstSpiritApiConfig->getPagingSize();
+        $queryData = $this->replaceOldArrayKeyWithNewArrayKey($queryData, self::CATEGORY_ID, self::CATEGORY);
+
+        $this->extendQueryData($queryData);
+
+        return $queryData;
+    }
+
+    /**
+     * @param array $queryData
+     *
+     * @return array
+     */
+    private function extendQueryData(array $queryData): array
+    {
+        foreach ($this->queryDataExpanderPlugins as $queryExpanderPlugin) {
+            $queryData = $queryExpanderPlugin->expandQueryData($queryData);
+        }
+
+        return $queryData;
     }
 }

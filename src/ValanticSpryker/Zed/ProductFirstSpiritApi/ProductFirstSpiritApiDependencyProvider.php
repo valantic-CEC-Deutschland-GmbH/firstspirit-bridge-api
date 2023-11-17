@@ -35,6 +35,7 @@ class ProductFirstSpiritApiDependencyProvider extends AbstractBundleDependencyPr
      * @var string
      */
     public const LOCALE_FACADE = 'LOCALE_FACADE';
+    public const PLUGINS_QUERY_EXPANDER = 'PLUGINS_QUERY_EXPANDER';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -48,6 +49,7 @@ class ProductFirstSpiritApiDependencyProvider extends AbstractBundleDependencyPr
         $this->addProductStorageClient($container);
         $this->addCatalogClient($container);
         $this->addLocaleFacade($container);
+        $this->addQueryExpanderPlugins($container);
 
         return $container;
     }
@@ -110,5 +112,25 @@ class ProductFirstSpiritApiDependencyProvider extends AbstractBundleDependencyPr
                 return $container->getLocator()->locale()->facade();
             },
         );
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    private function addQueryExpanderPlugins(Container $container): void
+    {
+        $container->set(static::PLUGINS_QUERY_EXPANDER, function () {
+            return $this->getQueryExpanderPlugins();
+        });
+    }
+
+    /**
+     * @return array<\ValanticSpryker\Zed\ProductFirstSpiritApi\Communication\Dependency\Plugin\QueryExpanderPluginInterface>
+     */
+    private function getQueryExpanderPlugins(): array
+    {
+        return [];
     }
 }
