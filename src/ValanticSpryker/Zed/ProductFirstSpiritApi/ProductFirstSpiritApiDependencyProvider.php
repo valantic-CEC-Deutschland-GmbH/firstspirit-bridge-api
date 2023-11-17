@@ -114,7 +114,12 @@ class ProductFirstSpiritApiDependencyProvider extends AbstractBundleDependencyPr
         );
     }
 
-    private function addQueryExpanderPlugins($container): void
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    private function addQueryExpanderPlugins(Container $container): void
     {
         $container->set(static::PLUGINS_QUERY_EXPANDER, function () {
             return $this->getQueryExpanderPlugins();
