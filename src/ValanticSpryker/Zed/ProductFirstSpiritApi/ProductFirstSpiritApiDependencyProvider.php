@@ -129,7 +129,7 @@ class ProductFirstSpiritApiDependencyProvider extends AbstractBundleDependencyPr
     /**
      * @return array<\ValanticSpryker\Zed\ProductFirstSpiritApi\Communication\Dependency\Plugin\QueryExpanderPluginInterface>
      */
-    private function getQueryExpanderPlugins(): array
+    protected function getQueryExpanderPlugins(): array
     {
         return [];
     }
