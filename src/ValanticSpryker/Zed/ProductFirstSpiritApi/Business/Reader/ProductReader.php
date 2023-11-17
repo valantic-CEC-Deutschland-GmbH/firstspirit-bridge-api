@@ -72,7 +72,7 @@ class ProductReader
         LocaleFacadeInterface $localeFacade,
         ProductFirstSpiritApiBusinessMapperInterface $businessMapper,
         FirstSpiritApiConfig $firstSpiritApiConfig,
-        array $queryDataExpanderPlugins = []
+        private array $queryDataExpanderPlugins = []
     ) {
         $this->productStorageClient = $productStorageClient;
         $this->catalogClient = $catalogClient;
@@ -204,8 +204,17 @@ class ProductReader
         return $queryData;
     }
 
-    private function extendQueryData(array $queryData)
+    /**
+     * @param array $queryData
+     *
+     * @return array
+     */
+    private function extendQueryData(array $queryData): array
     {
+        foreach ($this->queryDataExpanderPlugins as $queryExpanderPlugin) {
+            $queryData = $queryExpanderPlugin->expandQueryData($queryData);
+        }
 
+        return $queryData;
     }
 }
