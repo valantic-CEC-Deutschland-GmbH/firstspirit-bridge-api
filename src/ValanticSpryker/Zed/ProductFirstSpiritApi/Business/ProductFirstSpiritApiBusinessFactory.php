@@ -29,6 +29,7 @@ class ProductFirstSpiritApiBusinessFactory extends AbstractBusinessFactory
             $this->getLocaleFacade(),
             $this->createProductFirstSpiritApiBusinessMapper(),
             $this->getConfig(),
+            $this->getQueryExpanderPlugins(),
         );
     }
 
@@ -62,5 +63,13 @@ class ProductFirstSpiritApiBusinessFactory extends AbstractBusinessFactory
     public function getLocaleFacade(): LocaleFacadeInterface
     {
         return $this->getProvidedDependency(ProductFirstSpiritApiDependencyProvider::LOCALE_FACADE);
+    }
+
+    /**
+     * @return array<\ValanticSpryker\Zed\ProductFirstSpiritApi\Communication\Dependency\Plugin\QueryExpanderPluginInterface>
+     */
+    private function getQueryExpanderPlugins(): array
+    {
+        return $this->getProvidedDependency(ProductFirstSpiritApiDependencyProvider::PLUGINS_QUERY_EXPANDER);
     }
 }
