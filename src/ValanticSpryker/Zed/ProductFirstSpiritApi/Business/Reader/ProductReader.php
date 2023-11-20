@@ -199,9 +199,7 @@ class ProductReader
         $queryData[self::KEY_PRODUCTS_PER_PAGE] = $this->firstSpiritApiConfig->getPagingSize();
         $queryData = $this->replaceOldArrayKeyWithNewArrayKey($queryData, self::CATEGORY_ID, self::CATEGORY);
 
-        $this->extendQueryData($queryData);
-
-        return $queryData;
+        return $this->extendQueryData($queryData);
     }
 
     /**
