@@ -15,52 +15,52 @@ class ProductFirstSpiritApiBusinessMapper implements ProductFirstSpiritApiBusine
     /**
      * @var string
      */
-    private const KEY_ID_PRODUCT_ABSTRACT = 'id_product_abstract';
+    protected const KEY_ID_PRODUCT_ABSTRACT = 'id_product_abstract';
 
     /**
      * @var string
      */
-    private const KEY_ID_PRODUCT_CONCRETE = 'id_product_concrete';
+    protected const KEY_ID_PRODUCT_CONCRETE = 'id_product_concrete';
 
     /**
      * @var string
      */
-    private const KEY_ID = 'id';
+    protected const KEY_ID = 'id';
 
     /**
      * @var string
      */
-    private const KEY_LABEL = 'label';
+    protected const KEY_LABEL = 'label';
 
     /**
      * @var string
      */
-    private const KEY_URL = 'url';
+    protected const KEY_URL = 'url';
 
     /**
      * @var string
      */
-    private const KEY_EXTRACT = 'extract';
+    protected const KEY_EXTRACT = 'extract';
 
     /**
      * @var string
      */
-    private const KEY_IMAGE = 'image';
+    protected const KEY_IMAGE = 'image';
 
     /**
      * @var string
      */
-    private const KEY_THUMBNAIL = 'thumbnail';
+    protected const KEY_THUMBNAIL = 'thumbnail';
 
     /**
      * @var string
      */
-    private const KEY_NAME = 'name';
+    protected const KEY_NAME = 'name';
 
     /**
      * @var \Spryker\Client\ProductStorage\ProductStorageClientInterface
      */
-    private ProductStorageClientInterface $productStorageClient;
+    protected ProductStorageClientInterface $productStorageClient;
 
     /**
      * @param \Spryker\Client\ProductStorage\ProductStorageClientInterface $productStorageClient
