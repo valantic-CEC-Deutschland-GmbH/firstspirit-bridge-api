@@ -179,7 +179,7 @@ class ProductFirstSpiritApiBusinessMapper implements ProductFirstSpiritApiBusine
      *
      * @return \Generated\Shared\Transfer\FirstSpiritApiPaginationTransfer
      */
-    private function mapPaginationSearchResultTransferToFirstSpiritApiPagination(
+    protected function mapPaginationSearchResultTransferToFirstSpiritApiPagination(
         PaginationSearchResultTransfer $paginationSearchResultTransfer,
         FirstSpiritApiPaginationTransfer $firstSpiritApiPaginationTransfer
     ): FirstSpiritApiPaginationTransfer {
