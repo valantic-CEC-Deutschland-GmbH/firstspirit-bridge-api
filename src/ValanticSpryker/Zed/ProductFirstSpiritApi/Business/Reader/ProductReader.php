@@ -21,42 +21,42 @@ class ProductReader
     /**
      * @var string
      */
-    private const CATEGORY_ID = 'categoryId';
+    protected const CATEGORY_ID = 'categoryId';
 
     /**
      * @var string
      */
-    private const CATEGORY = 'category';
+    protected const CATEGORY = 'category';
 
     /**
      * @var string
      */
-    private const KEY_PRODUCTS_PER_PAGE = 'ipp';
+    protected const KEY_PRODUCTS_PER_PAGE = 'ipp';
 
     /**
      * @var \Spryker\Client\ProductStorage\ProductStorageClientInterface
      */
-    private ProductStorageClientInterface $productStorageClient;
+    protected ProductStorageClientInterface $productStorageClient;
 
     /**
      * @var \Spryker\Client\Catalog\CatalogClientInterface
      */
-    private CatalogClientInterface $catalogClient;
+    protected CatalogClientInterface $catalogClient;
 
     /**
      * @var \ValanticSpryker\Zed\ProductFirstSpiritApi\Business\Mapper\ProductFirstSpiritApiBusinessMapperInterface
      */
-    private ProductFirstSpiritApiBusinessMapperInterface $businessMapper;
+    protected ProductFirstSpiritApiBusinessMapperInterface $businessMapper;
 
     /**
      * @var \ValanticSpryker\Zed\FirstSpiritApi\FirstSpiritApiConfig
      */
-    private FirstSpiritApiConfig $firstSpiritApiConfig;
+    protected FirstSpiritApiConfig $firstSpiritApiConfig;
 
     /**
      * @var \Spryker\Zed\Locale\Business\LocaleFacadeInterface
      */
-    private LocaleFacadeInterface $localeFacade;
+    protected LocaleFacadeInterface $localeFacade;
 
     /**
      * @param \Spryker\Client\ProductStorage\ProductStorageClientInterface $productStorageClient
@@ -72,7 +72,7 @@ class ProductReader
         LocaleFacadeInterface $localeFacade,
         ProductFirstSpiritApiBusinessMapperInterface $businessMapper,
         FirstSpiritApiConfig $firstSpiritApiConfig,
-        private array $queryDataExpanderPlugins = []
+        protected array $queryDataExpanderPlugins = []
     ) {
         $this->productStorageClient = $productStorageClient;
         $this->catalogClient = $catalogClient;
@@ -143,7 +143,7 @@ class ProductReader
      *
      * @return string
      */
-    private function getRequestParameter(array $queryData, string $parameterName): string
+    protected function getRequestParameter(array $queryData, string $parameterName): string
     {
         if (array_key_exists($parameterName, $queryData)) {
             return $queryData[$parameterName];
@@ -159,7 +159,7 @@ class ProductReader
      *
      * @return array
      */
-    private function replaceOldArrayKeyWithNewArrayKey(array $queryData, string $oldKey, string $newKey): array
+    protected function replaceOldArrayKeyWithNewArrayKey(array $queryData, string $oldKey, string $newKey): array
     {
         if (array_key_exists($oldKey, $queryData)) {
             $keys = array_keys($queryData);
@@ -176,7 +176,7 @@ class ProductReader
      *
      * @return string
      */
-    private function getLocaleFromRequestParameters(array $parameters): string
+    protected function getLocaleFromRequestParameters(array $parameters): string
     {
         $currentLocale = $this->localeFacade->getCurrentLocaleName();
         if (!isset($parameters[CmsFirstSpiritApiConfig::FIRST_SPIRIT_PAGE_LANGUAGE])) {
@@ -207,7 +207,7 @@ class ProductReader
      *
      * @return array
      */
-    private function extendQueryData(array $queryData): array
+    protected function extendQueryData(array $queryData): array
     {
         foreach ($this->queryDataExpanderPlugins as $queryExpanderPlugin) {
             $queryData = $queryExpanderPlugin->expandQueryData($queryData);
