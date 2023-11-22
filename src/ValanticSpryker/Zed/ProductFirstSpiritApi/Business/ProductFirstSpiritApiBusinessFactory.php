@@ -68,7 +68,7 @@ class ProductFirstSpiritApiBusinessFactory extends AbstractBusinessFactory
     /**
      * @return array<\ValanticSpryker\Zed\ProductFirstSpiritApi\Communication\Dependency\Plugin\QueryExpanderPluginInterface>
      */
-    private function getQueryExpanderPlugins(): array
+    protected function getQueryExpanderPlugins(): array
     {
         return $this->getProvidedDependency(ProductFirstSpiritApiDependencyProvider::PLUGINS_QUERY_EXPANDER);
     }
