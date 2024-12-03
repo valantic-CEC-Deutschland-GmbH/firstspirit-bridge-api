@@ -37,7 +37,7 @@ class PathPreProcessor implements PreProcessorInterface
             $path = substr($path, strlen(FirstSpiritApiConfig::ROUTE_PREFIX_FIRST_SPIRIT_API_REST));
         }
 
-        $apiRequestTransfer->setPath($this->urlEncoding($path));
+        $apiRequestTransfer->setPath($this->urlDecodeComma($path));
 
         return $apiRequestTransfer;
     }
@@ -47,7 +47,7 @@ class PathPreProcessor implements PreProcessorInterface
      *
      * @return string
      */
-    private function urlEncoding(string $path): string
+    private function urlDecodeComma(string $path): string
     {
         return str_replace('%2C', ',', $path);
     }
